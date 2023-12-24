@@ -1,5 +1,6 @@
 package com.pe.lacunza.hateoas.service;
 
+import com.pe.lacunza.hateoas.exception.CuentaNotFoundException;
 import com.pe.lacunza.hateoas.model.Cuenta;
 import com.pe.lacunza.hateoas.repository.CuentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,19 @@ public class CuentaService {
         return cuentaRepository.save(cuenta);
     }
 
-    public void eliminar(Integer id) {
+    public void eliminar(Integer id) throws CuentaNotFoundException {
+        if(!cuentaRepository.existsById(id)) {
+            throw new CuentaNotFoundException("Cuenta no encontrada con el ID: " + id);
+        }
         cuentaRepository.deleteById(id);
+    }
+
+    public Cuenta  depositar(float monto, Integer id) {
+        cuentaRepository.actualizarMonto(monto, id);
+        return cuentaRepository.findById(id).get();
+    }
+    public Cuenta  retirar(float monto, Integer id) {
+        cuentaRepository.actualizarMonto(-monto, id);
+        return cuentaRepository.findById(id).get();
     }
 }
