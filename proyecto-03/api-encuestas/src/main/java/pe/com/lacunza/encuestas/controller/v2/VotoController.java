@@ -1,4 +1,4 @@
-package pe.com.lacunza.encuestas.controller;
+package pe.com.lacunza.encuestas.controller.v2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -9,8 +9,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pe.com.lacunza.encuestas.model.Voto;
 import pe.com.lacunza.encuestas.repository.VotoRepository;
 
-@RestController
-@RequestMapping("/api/votos")
+@RestController("VotoControllerV2")
+@RequestMapping("/v2/api/votos")
 public class VotoController {
 
     @Autowired
