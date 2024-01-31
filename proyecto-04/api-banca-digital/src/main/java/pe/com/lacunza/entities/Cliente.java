@@ -1,5 +1,6 @@
 package pe.com.lacunza.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,5 +24,6 @@ public class Cliente {
 
     // un cliente tiene muchas cuentas bancarias
     @OneToMany(mappedBy = "cliente")
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // al listar todos los clientes hay demasiada data(POR NO USAR DTOs) que produce un StackOverflowException en el servidor
     private List<CuentaBancaria> cuentasBancarias;
 }

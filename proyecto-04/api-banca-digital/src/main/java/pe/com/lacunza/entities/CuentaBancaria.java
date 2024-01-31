@@ -11,11 +11,12 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorColumn(name = "TIPO", length = 4, discriminatorType = DiscriminatorType.STRING) // si es necesario eliminar: discriminatorType = DiscriminatorType.STRING
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CuentaBancaria {
+public abstract class CuentaBancaria {
 
     @Id
     private String id;
@@ -30,6 +31,6 @@ public class CuentaBancaria {
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "cuentaBancaria")
+    @OneToMany(mappedBy = "cuentaBancaria", fetch = FetchType.LAZY)
     private List<OperacionCuenta> operacionesCuenta;
 }
