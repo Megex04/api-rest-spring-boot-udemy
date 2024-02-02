@@ -12,7 +12,7 @@ import pe.com.lacunza.repository.CuentaBancariaRepository;
 @Service
 @Transactional
 @Slf4j
-public class BancoService {
+public class BancoLogService {
 
     @Autowired
     private CuentaBancariaRepository cuentaBancariaRepository;

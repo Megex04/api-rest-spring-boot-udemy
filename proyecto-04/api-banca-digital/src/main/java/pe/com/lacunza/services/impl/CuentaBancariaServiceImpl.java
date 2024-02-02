@@ -18,6 +18,7 @@ import pe.com.lacunza.services.CuentaBancariaService;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -36,9 +37,37 @@ public class CuentaBancariaServiceImpl implements CuentaBancariaService {
     private CuentaBancariaMapper cuentaBancariaMapper;
 
     @Override
-    public Cliente saveCliente(Cliente cliente) {
+    public ClienteDTO saveCliente(ClienteDTO clienteDTO) {
+        Cliente cliente = cuentaBancariaMapper.mapperToModel(clienteDTO);
         log.info("Guardando cliente...");
-        return clienteRepository.save(cliente);
+        Cliente savedCliente = clienteRepository.save(cliente);
+        return cuentaBancariaMapper.mapperToDTO(savedCliente);
+    }
+
+    @Override
+    public ClienteDTO getCliente(Long clienteId) throws ClienteNotFoundException {
+        Cliente cliente = clienteRepository.findById(clienteId)
+                .orElseThrow(() -> new ClienteNotFoundException("El cliente con id " + clienteId + " no encontrado"));
+        return cuentaBancariaMapper.mapperToDTO(cliente);
+    }
+
+    @Override
+    public ClienteDTO updateCliente(ClienteDTO clienteDTO) throws ClienteNotFoundException {
+        Optional<Cliente> clienteOptional = clienteRepository.findById(clienteDTO.getId());
+        if(clienteOptional.isEmpty()){
+            throw new ClienteNotFoundException("El cliente con id " + clienteDTO.getId() + " no encontrado");
+        }
+        Cliente cliente = clienteRepository.save(cuentaBancariaMapper.mapperToModel(clienteDTO));
+        return cuentaBancariaMapper.mapperToDTO(cliente);
+    }
+
+    @Override
+    public void eliminarCliente(Long clienteId) throws ClienteNotFoundException {
+        Optional<Cliente> clienteOptional = clienteRepository.findById(clienteId);
+        if(clienteOptional.isEmpty()){
+            throw new ClienteNotFoundException("El cliente con id " + clienteId + " no encontrado");
+        }
+        clienteRepository.deleteById(clienteId);
     }
 
     @Override

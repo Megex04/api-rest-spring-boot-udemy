@@ -3,10 +3,10 @@ package pe.com.lacunza;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import pe.com.lacunza.dto.ClienteDTO;
 import pe.com.lacunza.entities.Cliente;
 import pe.com.lacunza.entities.CuentaBancaria;
-import pe.com.lacunza.services.BancoService;
+import pe.com.lacunza.services.BancoLogService;
 import pe.com.lacunza.services.CuentaBancariaService;
 
 import java.util.List;
@@ -20,9 +20,9 @@ public class ApiBancaDigitalApplication {
 	}
 
 	//@Bean
-	CommandLineRunner startServiceLOG(BancoService bancoService){
+	CommandLineRunner startServiceLOG(BancoLogService bancoLogService){
 		return args -> {
-			bancoService.consultar();
+			bancoLogService.consultar();
 		};
 
 	}
@@ -31,7 +31,7 @@ public class ApiBancaDigitalApplication {
 	CommandLineRunner start(CuentaBancariaService cuentaBancariaService){
 		return args -> {
 			Stream.of("Chistian","Julen","Cojudo","Luis","Sandra").forEach(nombre -> {
-				Cliente cliente = new Cliente();
+				ClienteDTO cliente = new ClienteDTO();
 				cliente.setNombre(nombre);
 				cliente.setEmail(nombre.toLowerCase() + "@gmail.com");
 				cuentaBancariaService.saveCliente(cliente);
