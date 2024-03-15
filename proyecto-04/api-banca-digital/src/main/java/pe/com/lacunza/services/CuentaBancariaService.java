@@ -1,9 +1,6 @@
 package pe.com.lacunza.services;
 
-import pe.com.lacunza.dto.ClienteDTO;
-import pe.com.lacunza.dto.CuentaActualDTO;
-import pe.com.lacunza.dto.CuentaAhorroDTO;
-import pe.com.lacunza.dto.CuentaBancariaDTO;
+import pe.com.lacunza.dto.*;
 import pe.com.lacunza.entities.Cliente;
 import pe.com.lacunza.entities.CuentaActual;
 import pe.com.lacunza.entities.CuentaAhorro;
@@ -19,6 +16,7 @@ public interface CuentaBancariaService {
     ClienteDTO saveCliente(ClienteDTO clienteDTO);
     ClienteDTO getCliente(Long clienteId) throws ClienteNotFoundException;
     ClienteDTO updateCliente(ClienteDTO clienteDTO) throws ClienteNotFoundException;
+    List<ClienteDTO> searchCliente(String keyword);
     void eliminarCliente(Long clienteId) throws ClienteNotFoundException;
 
     CuentaActualDTO saveBancariaCuentaActual(double balanceInicial, double sobregiro, Long clienteId) throws ClienteNotFoundException;
@@ -34,4 +32,6 @@ public interface CuentaBancariaService {
     void transfer(String cuentaIdPropietario, String cuentaIdDestinatario, double monto) throws CuentaBancariaNotFoundException, BalanceInsuficienteException;
 
     List<CuentaBancariaDTO> listCuentasBancarias();
+    List<OperacionCuentaDTO> listHistorialDeCuenta(String cuentaId);
+    HistorialCuentaDTO getHistorialCuenta(String cuentaId, int page, int size) throws CuentaBancariaNotFoundException;
 }

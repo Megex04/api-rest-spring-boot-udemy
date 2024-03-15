@@ -2,12 +2,11 @@ package pe.com.lacunza.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pe.com.lacunza.dto.ClienteDTO;
-import pe.com.lacunza.dto.CuentaActualDTO;
-import pe.com.lacunza.dto.CuentaAhorroDTO;
-import pe.com.lacunza.dto.CuentaBancariaDTO;
+import pe.com.lacunza.dto.*;
 import pe.com.lacunza.entities.*;
 import pe.com.lacunza.enums.EstadoCuenta;
 import pe.com.lacunza.enums.TipoOperacion;
@@ -61,6 +60,15 @@ public class CuentaBancariaServiceImpl implements CuentaBancariaService {
         }
         Cliente cliente = clienteRepository.save(cuentaBancariaMapper.mapperClienteToModel(clienteDTO));
         return cuentaBancariaMapper.mapperClienteToDTO(cliente);
+    }
+
+    @Override
+    public List<ClienteDTO> searchCliente(String keyword) {
+        List<Cliente> clientes = clienteRepository.searchClientes(keyword);
+        List<ClienteDTO> clientesDTO = clientes.stream()
+                .map(cliente -> cuentaBancariaMapper.mapperClienteToDTO(cliente))
+                .collect(Collectors.toList());
+        return clientesDTO;
     }
 
     @Override
@@ -194,5 +202,34 @@ public class CuentaBancariaServiceImpl implements CuentaBancariaService {
                 return cuentaBancariaMapper.mapperCAcToDTO(cuentaActual);
             }
         }).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<OperacionCuentaDTO> listHistorialDeCuenta(String cuentaId) {
+        List<OperacionCuenta> operacionesDeCuenta = operacionCuentaRepository.findByCuentaBancariaId(cuentaId);
+        return operacionesDeCuenta.stream().map(operacionCuenta ->
+            cuentaBancariaMapper.mapperOperacionToDTO(operacionCuenta)
+        ).toList();
+    }
+
+    @Override
+    public HistorialCuentaDTO getHistorialCuenta(String cuentaId, int page, int size) throws CuentaBancariaNotFoundException {
+        CuentaBancaria cuentaBancaria = cuentaBancariaRepository.findById(cuentaId).orElse(null);
+
+        if(cuentaBancaria == null) {
+            throw new CuentaBancariaNotFoundException("Cuenta no encontrada");
+        }
+
+        Page<OperacionCuenta> operacionesCuenta = operacionCuentaRepository.findByCuentaBancariaIdOrderByFechaOperacionDesc(cuentaId, PageRequest.of(page, size));
+        HistorialCuentaDTO historialCuentaDTO = new HistorialCuentaDTO();
+        List<OperacionCuentaDTO> operacionesCuentaDTOS = operacionesCuenta.getContent().stream()
+                .map(operacionCuenta -> cuentaBancariaMapper.mapperOperacionToDTO(operacionCuenta)).toList();
+        historialCuentaDTO.setOperacionesCuentaDTOS(operacionesCuentaDTOS);
+        historialCuentaDTO.setId(cuentaBancaria.getId());
+        historialCuentaDTO.setBalance(cuentaBancaria.getBalance());
+        historialCuentaDTO.setCurrentPage(page);
+        historialCuentaDTO.setPageSize(size);
+        historialCuentaDTO.setTotalPages(operacionesCuenta.getTotalPages());
+        return historialCuentaDTO;
     }
 }

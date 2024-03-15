@@ -36,4 +36,8 @@ public class ClienteController {
     public void eliminarCliente(@PathVariable(value = "id") Long clienteId) throws ClienteNotFoundException {
         cuentaBancariaService.eliminarCliente(clienteId);
     }
+    @GetMapping("/clientes/search")
+    public List<ClienteDTO> buscarCliente(@RequestParam(value = "keyword", defaultValue = "") String keyword) {
+        return cuentaBancariaService.searchCliente("%" + keyword + "%");
+    }
 }

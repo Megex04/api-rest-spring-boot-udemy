@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 import pe.com.lacunza.dto.ClienteDTO;
 import pe.com.lacunza.dto.CuentaActualDTO;
 import pe.com.lacunza.dto.CuentaAhorroDTO;
+import pe.com.lacunza.dto.OperacionCuentaDTO;
 import pe.com.lacunza.entities.Cliente;
 import pe.com.lacunza.entities.CuentaActual;
 import pe.com.lacunza.entities.CuentaAhorro;
+import pe.com.lacunza.entities.OperacionCuenta;
 
 @Service
 public class CuentaBancariaMapper {
@@ -47,5 +49,10 @@ public class CuentaBancariaMapper {
         BeanUtils.copyProperties(cuentaActualDTO, cuentaActual);
         cuentaActual.setCliente(mapperClienteToModel(cuentaActualDTO.getClienteDTO()));
         return cuentaActual;
+    }
+    public OperacionCuentaDTO mapperOperacionToDTO(OperacionCuenta operacionCuenta) {
+        OperacionCuentaDTO operacionCuentaDTO = new OperacionCuentaDTO();
+        BeanUtils.copyProperties(operacionCuenta, operacionCuentaDTO);
+        return operacionCuentaDTO;
     }
 }
