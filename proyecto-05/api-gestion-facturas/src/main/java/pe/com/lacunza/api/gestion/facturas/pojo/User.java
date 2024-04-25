@@ -6,6 +6,9 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email=:email")
+@NamedQuery(name = "User.getAllUsers",
+        query = "SELECT new pe.com.lacunza.api.gestion.facturas.wrapper.UserWrapper(u.id, u.nombre, u.email, u.numeroDeContacto, u.status) FROM User u WHERE u.role='user'")
+@NamedQuery(name = "User.updateStatus", query = "UPDATE User u set u.status=:status WHERE u.id=:id")
 
 @Data
 @Entity
