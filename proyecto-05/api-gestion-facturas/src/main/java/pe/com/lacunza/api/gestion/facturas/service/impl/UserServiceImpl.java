@@ -16,6 +16,7 @@ import pe.com.lacunza.api.gestion.facturas.security.CustomerDetailsService;
 import pe.com.lacunza.api.gestion.facturas.security.jwt.JwtFilter;
 import pe.com.lacunza.api.gestion.facturas.security.jwt.JwtUtil;
 import pe.com.lacunza.api.gestion.facturas.service.UserService;
+import pe.com.lacunza.api.gestion.facturas.util.EmailUtils;
 import pe.com.lacunza.api.gestion.facturas.util.FacturaUtils;
 import pe.com.lacunza.api.gestion.facturas.wrapper.UserWrapper;
 
@@ -37,6 +38,8 @@ public class UserServiceImpl implements UserService {
     private JwtFilter jwtFilter;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private EmailUtils emailUtils;
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
         log.info("Registro interno de usuario: {}", requestMap);
@@ -107,6 +110,7 @@ public class UserServiceImpl implements UserService {
                 Optional<User> optionalUser = userDAO.findById(Integer.parseInt(requestMap.get("id")));
                 if(!optionalUser.isEmpty()) {
                     userDAO.updateStatus(requestMap.get("status"), Integer.parseInt(requestMap.get("id")));
+                    sendEmailToAdmins(requestMap.get("status"), optionalUser.get().getEmail(), userDAO.getAllAdmins());
                     return FacturaUtils.getResponseEntity("Status de usuario actualizado", HttpStatus.OK);
                 } else {
                     return FacturaUtils.getResponseEntity("Este usuario no existe", HttpStatus.NOT_FOUND);
@@ -118,6 +122,14 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
         return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    private void sendEmailToAdmins(String status, String user, List<String> allAdmins){
+        allAdmins.remove(jwtFilter.currentUser());
+        if(Objects.nonNull(status) && status.equalsIgnoreCase("true")) {
+            emailUtils.sendSimpleMessage(jwtFilter.currentUser(), "Cuenta aprobada", "El usuario " + user + "\nes aprobado \npor Admin: " + jwtFilter.currentUser(), allAdmins);
+        } else {
+            emailUtils.sendSimpleMessage(jwtFilter.currentUser(), "Cuenta desaprobada/rechazada", "El usuario " + user + "\nes desaprobado/rechazado \npor Admin: " + jwtFilter.currentUser(), allAdmins);
+        }
     }
 
     private boolean validateSignUpMap(Map<String, String> requestMap) {

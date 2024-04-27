@@ -1,0 +1,37 @@
+package pe.com.lacunza.api.gestion.facturas.util;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Objects;
+
+@Service
+public class EmailUtils {
+
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    public void sendSimpleMessage(String to, String subject, String text, List<String> list) {
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("miantolalfa04@gmail.com");
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
+
+        if(Objects.nonNull(list) && list.size() > 0) {
+            message.setCc(getCcArray(list));
+        }
+        javaMailSender.send(message);
+    }
+    private String[] getCcArray(List<String> ccList) {
+        String[] cc = new String[ccList.size()];
+        for (int i = 0; i < ccList.size(); i++) {
+            cc[i] = ccList.get(i);
+        }
+        return cc;
+    }
+}
