@@ -1,5 +1,6 @@
 package pe.com.lacunza.api.gestion.facturas.service.impl;
 
+import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,13 @@ import pe.com.lacunza.api.gestion.facturas.util.EmailUtils;
 import pe.com.lacunza.api.gestion.facturas.util.FacturaUtils;
 import pe.com.lacunza.api.gestion.facturas.wrapper.UserWrapper;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.*;
 
 @Slf4j
@@ -48,7 +56,7 @@ public class UserServiceImpl implements UserService {
                 User user = userDAO.findByEmail(requestMap.get("email"));
                 if(Objects.isNull(user)) {
                     // Codificar la contraseña antes de guardarla en la base de datos
-                    String encodedPassword = passwordEncoder.encode(requestMap.get("password"));
+                    String encodedPassword = passwordEncoder.encode(requestMap.get("password")); // usando BCrypt (una vez encriptado ya no se puede volver a desencriptar la contraseña)
                     requestMap.put("password", encodedPassword);
 
                     userDAO.save(getUserFromMap(requestMap));
@@ -123,6 +131,44 @@ public class UserServiceImpl implements UserService {
         }
         return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<String> checkToken() {
+        return FacturaUtils.getResponseEntity("true", HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<String> changePassword(Map<String, String> requestMap) {
+        try {
+            User user = userDAO.findByEmail(jwtFilter.currentUser());
+            if(!user.equals(null)) {
+                if(passwordEncoder.matches(requestMap.get("oldPassword"), user.getPassword())) { // usando BCrypt (una vez encriptado ya no se puede volver a desencriptar la contraseña)
+                    user.setPassword(passwordEncoder.encode(requestMap.get("newPassword"))); // usando BCrypt (una vez encriptado ya no se puede volver a desencriptar la contraseña)
+                    userDAO.save(user);
+                    return FacturaUtils.getResponseEntity("Contrasena actualizada con éxito!", HttpStatus.OK);
+                }
+                return FacturaUtils.getResponseEntity("Contrasena incorrecta \uD83E\uDD14", HttpStatus.BAD_REQUEST);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<String> forgotPassword(Map<String, String> requestMap) {
+        try {
+            User user = userDAO.findByEmail(requestMap.get("email"));
+            if(!Objects.isNull(user) && !Strings.isNullOrEmpty(user.getEmail())) {
+                emailUtils.forgotPasswordSendEmail(user.getEmail(), "Credenciales del sistema gestion de facturas", user.getPassword());
+            }
+            return FacturaUtils.getResponseEntity("Verifica tus credenciales!!", HttpStatus.OK);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     private void sendEmailToAdmins(String status, String user, List<String> allAdmins){
         allAdmins.remove(jwtFilter.currentUser());
         if(Objects.nonNull(status) && status.equalsIgnoreCase("true")) {

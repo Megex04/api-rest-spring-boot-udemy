@@ -1,3 +1,6 @@
 PROYECTO 5: localhost -> (usuario-> email - contraseña)
-usuario 1: mimi03@gmail.com	123456789
-usuario 2: mimi05@gmail.com	123456789
+usuario 1: miantolalfa@gmail.com	123456789000
+usuario 2: lacunzamiguel04@gmail.com	123456789000
+usuario 3: mimi03@gmail.com	123456789000
+usuario 4: mimi05@gmail.com	123456789
+usuario 4: lacunzaalfaromiguel2000@gmail.com	123456789000

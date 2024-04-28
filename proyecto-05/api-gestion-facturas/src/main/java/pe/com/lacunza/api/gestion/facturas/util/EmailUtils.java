@@ -1,8 +1,11 @@
 package pe.com.lacunza.api.gestion.facturas.util;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,5 +36,18 @@ public class EmailUtils {
             cc[i] = ccList.get(i);
         }
         return cc;
+    }
+    public void forgotPasswordSendEmail(String to, String subject, String password) throws MessagingException {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setFrom("miantolalfa04@gmail.com");
+        helper.setTo(to);
+        helper.setSubject(subject);
+
+        String htmlMessage = "<p><b>Sus detalles de inicio de sesión para el sistema de facturas</b> <br><b>Email: </b>"
+                + to + "<br><b>Password: </b>" + password + "</p>";
+        message.setContent(htmlMessage, "text/html");
+        javaMailSender.send(message);
     }
 }
