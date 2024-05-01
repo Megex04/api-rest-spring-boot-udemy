@@ -74,7 +74,8 @@ public class UserController {
         }
         return FacturaUtils.getResponseEntity(FacturaConstantes.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    @PostMapping("/forgot/password")
+    @PostMapping("/forgot/password") // ESTE METODO DEVUELVE AL usuario SU CONTRASEÑA PERO "ENCRIPTADA" POR CORREO
+    // CON EL ARGORITMO DE "BCRYPT" NO ES POSIBLE RECUPERARLA COMO ESTABA EN SU ESTADO ORIGINAL
     public ResponseEntity<String> recuperarContrasenia(@RequestBody(required = true) Map<String, String> requestMap) {
         try {
             return userService.forgotPassword(requestMap);
