@@ -1,0 +1,1918 @@
+{
+	"info": {
+		"_postman_id": "20df457f-eb87-4892-acde-98a2d140705d",
+		"name": "APIs REST - la tecnologia avanza - udemy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30290768"
+	},
+	"item": [
+		{
+			"name": "proyecto01",
+			"item": [
+				{
+					"name": "intro",
+					"item": [
+						{
+							"name": "intro math API REST",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/math/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"math",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "suma API",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/math/add/34/400",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"math",
+										"add",
+										"34",
+										"400"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "resta API",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/math/subtraction/970?num2=670",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"math",
+										"subtraction",
+										"970"
+									],
+									"query": [
+										{
+											"key": "num2",
+											"value": "670"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "multi API",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/math/multi?num1=56&num2=105",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"math",
+										"multi"
+									],
+									"query": [
+										{
+											"key": "num1",
+											"value": "56"
+										},
+										{
+											"key": "num2",
+											"value": "105"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "division API",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/math/div/7690?divisor=0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"math",
+										"div",
+										"7690"
+									],
+									"query": [
+										{
+											"key": "divisor",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mayor-menor API",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/math/calculate/340/340",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"math",
+										"calculate",
+										"340",
+										"340"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "listar-productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar-productos ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/productos/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "guardar-producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 10,\r\n    \"nombre\": \"Lavavalillas\",\r\n    \"cantidad\": 560,\r\n    \"precio\": 45.70\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar-producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 8,\r\n    \"nombre\": \"Mojon\",\r\n    \"cantidad\": 9090,\r\n    \"precio\": 15.60\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar-productos ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/productos/29",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"29"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "proyecto02",
+			"item": [
+				{
+					"name": "listar cuentas GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cuentas/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar cuenta por id GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cuentas/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SAVE cuenta POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroDeCuenta\": \"55559605\",\r\n    \"monto\": 19100.90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cuentas/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT cuenta PUTa",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"numeroDeCuenta\": \"011023232\",\r\n    \"monto\": 9079.80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cuentas/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEPOSITO cuenta PATCH",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": 30.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cuentas/9/deposito",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"9",
+								"deposito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RETIRO cuenta PATCH",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": 410.8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cuentas/9/retiro",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"9",
+								"retiro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE cuenta por id DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cuentas/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sistema encuestas-proyecto03",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "save encuesta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    //\"pregunta\": \"¿Cual es lenguaje XD de programacion mas popular?\",\r\n    \"opciones\": [\r\n        {\"value\": \"java\"},\r\n        {\"value\": \"javascript\"},\r\n        {\"value\": \"C#\"},\r\n        {\"value\": \"Python\"},\r\n        {\"value\": \"Go\"},\r\n        {\"value\": \"C++\"}\r\n    ] \r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/encuestas/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"encuestas",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listar ENCUESTAS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/api/encuestas/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"encuestas",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modificar ENCUESTA",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pregunta\": \"¿Cual es tu puto V2 lenguaje de programacion favorito?\",\r\n    \"opciones\": [\r\n        {\"value\": \"java\"},\r\n        {\"value\": \"Pascal\"},\r\n        {\"value\": \"C#\"},\r\n        {\"value\": \"Python\"},\r\n        {\"value\": \"Go\"},\r\n        {\"value\": \"C++\"}\r\n    ] \r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/encuestas/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"encuestas",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OBTENER 1 encuesta",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/encuestas/526",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"encuestas",
+										"526"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ELIMINAR ENCUESTA",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/encuestas/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"encuestas",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "save VOTOS",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"opcion\": {\r\n        \"id\": \"6\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/votos/encuesta",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"votos",
+										"encuesta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listar VOTOS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/votos/1/encuesta",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"votos",
+										"1",
+										"encuesta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "calculo por VOTOS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/calcular/resultado?encuestaId=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"calcular",
+										"resultado"
+									],
+									"query": [
+										{
+											"key": "encuestaId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "v2",
+					"item": [
+						{
+							"name": "listar ENCUESTAS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v2/api/encuestas/?page=0&size=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v2",
+										"api",
+										"encuestas",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "banca-digital-proyecto04",
+			"item": [
+				{
+					"name": "CLIENTE CRUD",
+					"item": [
+						{
+							"name": "LISTAR CLIENTES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/clientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR CLIENTES por NOMBRE",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/clientes/search?keyword=C",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"search"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "C"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR 1 CLIENTE",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/clientes/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "guardar 1 CLIENTE",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Putema\",\r\n    \"email\": \"putema.exe@mail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/clientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "actualizar 1 CLIENTE",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 6,\r\n    \"nombre\": \"Descuaragingado\",\r\n    \"email\": \"cachema.exe@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/clientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eliminar 1 CLIENTE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/clientes/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"clientes",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CUENTA BANCARIA endpoints",
+					"item": [
+						{
+							"name": "OBTENER CUENTA BANCARIA",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cuenta?cuentaId=7849eb05-38c4-48bd-94ba-4a1a9194abaf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cuenta"
+									],
+									"query": [
+										{
+											"key": "cuentaId",
+											"value": "7849eb05-38c4-48bd-94ba-4a1a9194abaf"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR HISTORIAL CUENTA BANCARIA",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/detalle/9a758e78-725a-42df-827e-38c8d6668af1/operaciones",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"detalle",
+										"9a758e78-725a-42df-827e-38c8d6668af1",
+										"operaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[Paginado] LISTAR HISTORIAL CUENTA BANCARIA",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/detalle/37a744c6-f92c-4488-9254-86a9e49cf8ad/pageOperaciones",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"detalle",
+										"37a744c6-f92c-4488-9254-86a9e49cf8ad",
+										"pageOperaciones"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR CUENTA BANCARIA",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cuentas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cuentas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "REALIZAR DEBITO",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cuentaId\": \"37a744c6-f92c-4488-9254-86a9e49cf8ad\",\r\n    \"monto\": 24000.59,\r\n    \"descripcion\": \"Transferencia baby shower\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cuentas/debito",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cuentas",
+										"debito"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "REALIZAR CREDITO",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cuentaId\": \"37a744c6-f92c-4488-9254-86a9e49cf8ad\",\r\n    \"monto\": 1100.99,\r\n    \"descripcion\": \"Transferencia por credito\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cuentas/credito",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cuentas",
+										"credito"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "REALIZAR TRANSFERENCIA",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cuentaPropietario\": \"586220bf-5793-4b23-b87c-2c66934cd82b\",\r\n    \"cuentaDestinatario\": \"37a744c6-f92c-4488-9254-86a9e49cf8ad\",\r\n    \"monto\": 100090.59,\r\n    \"descripcion\": \"Transferencia baby shower\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cuentas/transferencias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cuentas",
+										"transferencias"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "sistema-gestion-facturas-05",
+			"item": [
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "GUARDAR USER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Admin test (6)\",\r\n    \"numeroDeContacto\": \"985777888\",\r\n    \"email\": \"lacunzaalfaromiguel2000@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/users/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login users (INICIAR SESION)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"mimi03@gmail.com\", // lacunzamiguel04@gmail.com  mimi03@gmail.com\r\n    \"password\": \"123456789000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[deprecated] RECUPERAR CONTRASEÑA user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"lacunzaalfaromiguel2000@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/users/forgot/password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"users",
+										"forgot",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CAMBIAR CONTRASEÑA usuario",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoidXNlciIsInN1YiI6ImxhY3VuemFhbGZhcm9taWd1ZWwyMDAwQGdtYWlsLmNvbSIsImlhdCI6MTcxNDI2NDQ4NywiZXhwIjoxNzE0MjY4MDg3fQ.yyx21UkytZZ7W2JXuqFktP5coyAKw3KdlXiwpWvwm1cDWgCDeeRm5GOqDWo-kkc9eou_zNJ3ul1IgQI3X9dg9Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"123456789\",\r\n    \"newPassword\": \"123456789000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/users/change/password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"users",
+										"change",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR usuarios",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0MDE0MDkyLCJleHAiOjE3MTQwMTc2OTJ9.3afKbB1N7mhkZz9TATSunSlro9-_OGXwt_Zgm2KVo2Tz7XgL_FaE8YudvN-W8wkZEr4pnizQidNF1J_vMICiCg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/users/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"users",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "validar TOKEN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0NjcwNDA1LCJleHAiOjE3MTQ2NzQwMDV9.gdTQiTfyPiK2zsDyYTFDPksTWnutvfBceo7qtcC6EpaM_i-QEK_sNAVTnT4x7VlytjM4Tn7UXNY_R2ob9hSb8g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/users/check/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"users",
+										"check",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ACTUALIZAR ESTADO del usuario",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0MjY0NTkyLCJleHAiOjE3MTQyNjgxOTJ9.OrQBT2ibl1RFlC67RpqWHUJQOlIRuI0sY7iItvsq5EAqWqlvCoQlnyWQPl8YtPF72FNka-ZG_fVKgrbPxJI0nA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"15\",\r\n    \"status\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/users/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"users",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categorias",
+					"item": [
+						{
+							"name": "GUARDAR categoria",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0NjcxMjg3LCJleHAiOjE3MTQ2NzQ4ODd9.M8XjJbsPeoF3fPIUvd_6JGVYk_AdR1K-4TXAbmt_VKQP6EAnJBh7JIxOJqa7wMN2xaPNp3zSQIfKbcMAgF3j1A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Extra\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/categories/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"categories",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ACTUALIZAR categoria",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0NjcwODA5LCJleHAiOjE3MTQ2NzQ0MDl9.KSeZIVphJy3KyTYCOkJF6GO7Yp4wqK2GhMvgg76xRrrK8ulXJirakMDnMoQSwH0LmNyPKGCngv7uv5ax4f--Lg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Batidos premium\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/categories/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"categories",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR categorias",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0NjAzNjA5LCJleHAiOjE3MTQ2MDcyMDl9.UaCTpo5JL83unnyhLWgYRCFEkn2HmVSaNe34oICrlhgexvjorCn_e2kkdJA8rMID_FtJmNLffvUdU-44WgF40Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/categories/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"categories",
+										"list"
+									],
+									"query": [
+										{
+											"key": "valueFilter",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Productos",
+					"item": [
+						{
+							"name": "AGREGAR producto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0OTYzNTU5LCJleHAiOjE3MTQ5NjcxNTl9.YRQPaR6FB1qjwCHahoTIUD3CP5vxmH6a8L9dkpuWBwOWaYiOl7p883oNwWSGN-t0auFf7UtE6mToyCCxufNYlg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Plancha Heavy\",\r\n    \"descripcion\": \"Con roseador\",\r\n    \"precio\": \"295.60\",\r\n    \"categoriaId\": \"2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/products/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "STATUS modificar por ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0ODg1MTk3LCJleHAiOjE3MTQ4ODg3OTd9.VzJzr9u5nCtY-WvWNqLCJCbycfT6zjszzLeOVBQ93mCMbVDIl73ZRexf_zdtmaYR7tNDNNk5yDFxc3zMcgheyQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"4\",\r\n    \"status\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/products/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ACTUALIZAR producto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0Nzc2MjAzLCJleHAiOjE3MTQ3Nzk4MDN9.licfs7OlNpzhnMOoHBDeLdyDbozURTxtkR86tRShQrApTdzgcZbhancHpvkLoZwER1JlR8Lmmb0rhaKRcoMlkw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"2\",\r\n    \"nombre\": \"Microondas modificado\",\r\n    \"descripcion\": \"Con prolongada duracion y coccion buena\",\r\n    \"precio\": \"108.70\",\r\n    \"categoriaId\": \"2\",\r\n    \"status\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/products/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR productos",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0OTYzNTU5LCJleHAiOjE3MTQ5NjcxNTl9.YRQPaR6FB1qjwCHahoTIUD3CP5vxmH6a8L9dkpuWBwOWaYiOl7p883oNwWSGN-t0auFf7UtE6mToyCCxufNYlg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/products/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BUSCAR productos por NOMBRE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoidXNlciIsInN1YiI6ImxhY3VuemFtaWd1ZWwwNEBnbWFpbC5jb20iLCJpYXQiOjE3MTQ4ODQyMjYsImV4cCI6MTcxNDg4NzgyNn0.fIwL9DlG0cTKQZ85rm2sAoZ_4KDbH_3XS6iLw7v9P4oBZPUDjx80ndrj81jOQ8nYy1b3o0tudgeDVsx8hxnYXA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/products/search?name=U",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "U"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LISTAR POR CATEGORIA productos",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0OTY0NDM1LCJleHAiOjE3MTQ5NjgwMzV9.rsnSGvn4eK1U1UOjyvzPceTuiS5-6KN8p3fYLe3gZNd0yN_FNonsE815ScxwBVSuDseDbGTEX6wE41DIs1b6hA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/products/by/category/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"by",
+										"category",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OBTENER PRODUCTO por id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0OTY1MzM0LCJleHAiOjE3MTQ5Njg5MzR9.XQxTJOvV7cLUSupVLlFH-IydBm2yyd7BiZk23cwgNhGDjlotbNMEkFiZjQ2NLtZA7vfzaeERbHpu3JJ9jJWJEQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/products/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ELIMINAR producto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE0ODU4NTU0LCJleHAiOjE3MTQ4NjIxNTR9.mUguiRWFo9ESR_1kY9d0HwqlnltIO5O56Aatn2_aVUqp2Kf8L5_whGplv3n1BB-LtxU2TjRebK4J4SNPbCWFNQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/products/delete/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"products",
+										"delete",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Facturas",
+					"item": [
+						{
+							"name": "GENERAR REPORTE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE2OTQwOTk4LCJleHAiOjE3MTY5NDQ1OTh9.KVm85tllqNcj5DLL-AoOl7-sxNx51lrzhGoIEXqvbDv6DJDRREebfNwmmCh_Vn23IQ2rz0BUqwVR5G61g4MHzA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fileName\": \"reporte-factura\",\r\n    \"numeroContacto\": \"981091672\",\r\n    \"email\": \"test02@gmail.com\",\r\n    \"nombre\": \"Test2\",\r\n    \"metodoPago\": \"Cash-Pay\",\r\n    \"productoDetalles\": \"[{\\\"id\\\":18,\\\"nombre\\\":\\\"Nombre 01\\\",\\\"categoria\\\":\\\"Coffee\\\",\\\"cantidad\\\":\\\"1\\\",\\\"precio\\\":120,\\\"total\\\":120},{\\\"id\\\":21,\\\"nombre\\\":\\\"Nombre 04\\\",\\\"categoria\\\":\\\"Coffee\\\",\\\"cantidad\\\":\\\"1\\\",\\\"precio\\\":120,\\\"total\\\":120}]\",\r\n    \"montoTotal\": \"450\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/factura/generar/reporte",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"factura",
+										"generar",
+										"reporte"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OBTENER PDF",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE2OTM5Njc1LCJleHAiOjE3MTY5NDMyNzV9.GfnK0dHdgIvFwkY_rm7W2uI2Hffm2P171cc6EqmvOX-eff0q0qAs77UDH_rLLaR1FYMzYA_Xaq7Fz2vSxVEkkQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fileName\": \"reporte-factura\",\r\n    \"uuid\": \"FACTURA-1716862572693\",\r\n    \"numeroContacto\": \"981091672\",\r\n    \"email\": \"test02@gmail.com\",\r\n    \"nombre\": \"Test2\",\r\n    \"metodoPago\": \"Cash-Pay\",\r\n    \"productoDetalles\": \"[{\\\"id\\\":18,\\\"nombre\\\":\\\"Nombre 01\\\",\\\"categoria\\\":\\\"Coffee\\\",\\\"cantidad\\\":\\\"1\\\",\\\"precio\\\":120,\\\"total\\\":120},{\\\"id\\\":21,\\\"nombre\\\":\\\"Nombre 04\\\",\\\"categoria\\\":\\\"Coffee\\\",\\\"cantidad\\\":\\\"1\\\",\\\"precio\\\":120,\\\"total\\\":120}]\",\r\n    \"montoTotal\": \"450\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/factura/get/pdf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"factura",
+										"get",
+										"pdf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "OBTENER FACTURAS",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE2OTQwMDU0LCJleHAiOjE3MTY5NDM2NTR9.8Ze2hxSy4QG2eaPj8rCcHGR29uGXovuLwZ-80WXz4onaxQtNsew0SOaqGPcZvZItC6eVLfrwvviBCB7BGFPApg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/factura/get/facturas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"factura",
+										"get",
+										"facturas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ELIMINAR FACTURA",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE2OTQxMDcwLCJleHAiOjE3MTY5NDQ2NzB9.n9FMjw60aWjpcjsFSryFtOXWavA3XwD2Y7ItOwBZUoLHZccp6s8rxf07bMZ13ntkbI_7fTDS3i_JEsQnPgL-9Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/factura/delete/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"factura",
+										"delete",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "OBTENER FACTURAS Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiYWRtaW4iLCJzdWIiOiJtaW1pMDNAZ21haWwuY29tIiwiaWF0IjoxNzE3MDEzOTYyLCJleHAiOjE3MTcwMTc1NjJ9.mu1Z_tHXfHC1gTo7fHOy5K_9h9vbLKT15wkSH6IR3eOpO4CcxvYBpyvxMDl6bE-nBV86kMp2u2iT1zHc9EHaBw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/dashboard/details",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"dashboard",
+										"details"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
