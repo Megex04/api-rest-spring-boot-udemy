@@ -6,4 +6,5 @@ public class FacturaConstantes {
 
     public static final String INVALID_DATA = "Datos inválidos";
     public static final String UNAUTHORIZED_ACCESS = "Acceso no autorizado";
+    public static final String STORED_LOCATION = "C:\\locationSpring-PDFs";
 }
